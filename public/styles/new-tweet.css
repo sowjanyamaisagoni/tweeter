@@ -46,4 +46,18 @@
    float:right;
  }
 
- 
+
+i { color:#63c6b8;
+    padding: 4px;
+}
+.fa-heart:hover {
+  color: rgb(209, 62, 26);
+}
+.fa-flag:hover{
+  color: rgb(209, 62, 26);
+}
+.fa-retweet:hover{
+  color: rgb(209, 62, 26);
+}
+
+
