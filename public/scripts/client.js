@@ -72,5 +72,18 @@ $('form').submit(function(event) {
      method: 'POST',
      data: $(this).serialize()
    })
-})
+
+ loadTweets();
+  });
+
+  //fetch tweets from server
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets",
+      method: "GET"
+    })
+      .then(function(data) {
+        renderTweets(data);
+      })
+  }
 })
