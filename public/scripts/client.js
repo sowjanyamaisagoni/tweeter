@@ -39,7 +39,7 @@ const renderTweets = function(tweets) {
 const createTweetElement = function(obj) {
    
    
-   const time=timeago.format(obj.created_at);
+   const time = timeago.format(obj.created_at);
 
    const $tweet = $(`
    <article class="tweet">
@@ -49,7 +49,7 @@ const createTweetElement = function(obj) {
        </header>
        <p>${obj.content.text}</p>
        <footer>
-         <span id="time-ago">${time}</span>
+         <span id = "time-ago">${time}</span>
          <div><i class="fas fa-flag"></i><i class="fas fa-redo-alt"></i><i class="fas fa-heart"></i></div>
        </footer>
    </artical>
@@ -64,4 +64,13 @@ const createTweetElement = function(obj) {
 //$('#tweets-container').append($tweet); //
 
 renderTweets(data);
+
+$('form').submit(function(event) {
+   event.preventDefault();
+   $.ajax({
+     url: '/tweets/',
+     method: 'POST',
+     data: $(this).serialize()
+   })
+})
 })
