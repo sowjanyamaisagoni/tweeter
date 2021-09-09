@@ -34,9 +34,15 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav class="nav_bar">
+    <nav>
       <span>Tweeter</span>
+      <div class= "right-content" >
+        <span>Write a new tweet</span>
+        <i class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
+
+    
     
     <header class="top-header">
       <div>
@@ -49,9 +55,9 @@
   </header >
     <!-- Page-specific (main) content here -->
     <main class="container" Content-type:application/x-www-form-urlencoded>
-      <section class="new-tweet" >
-        <h2>Compose Tweet</h2>
-        <!-- <section id="new-tweet"> -->
+      <!-- <section class="new-tweet" > -->
+        <h2>Compose Tweet</h2> 
+        <section id="new-tweet">
           <div id="error"></div>
           <form id="incoming-tweet" action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
@@ -102,3 +108,5 @@
     </main>
   </body>
 </html>
+
+

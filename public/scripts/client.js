@@ -48,7 +48,7 @@ const createTweetElement = function(obj) {
     const $tweetHead = $(`   
        <header>
          <span><img src=${obj.user.avatars}> ${obj.user.name}</span>
-         <span id="mention">${obj.user.handle}</span>
+         <span id="handle">${obj.user.handle}</span>
          </header>`);
          //escape unsafe text
          const $tweetBody = $('<p>').text(`${obj.content.text}`);
