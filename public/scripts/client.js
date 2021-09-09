@@ -24,6 +24,8 @@ $(document).ready(function() {
    }
  ]
 
+ 
+
 const renderTweets = function(tweets) {
  
 //  tweets.forEach(element => {
@@ -42,19 +44,22 @@ const createTweetElement = function(obj) {
    
    const time = timeago.format(obj.created_at);
 
-   const $tweet = $(`
-   <article class="tweet">
+   const $tweet = $(` <article class="tweet"></artical>`)
+    const $tweetHead = $(`   
        <header>
          <span><img src=${obj.user.avatars}> ${obj.user.name}</span>
          <span id="mention">${obj.user.handle}</span>
-       </header>
-       <p>${obj.content.text}</p>
-       <footer>
+         </header>`);
+         //escape unsafe text
+         const $tweetBody = $('<p>').text(`${obj.content.text}`);
+         const $tweetFoot = $(`<footer>
+       
          <span id = "time-ago">${time}</span>
          <div><i class="fas fa-flag"></i><i class="fas fa-redo-alt"></i><i class="fas fa-heart"></i></div>
-       </footer>
-   </artical>
-   `);
+         </footer>`);
+         $tweet.append($tweetHead);
+         $tweet.append($tweetBody);
+         $tweet.append($tweetFoot);
    return $tweet;
  };
 
