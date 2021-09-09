@@ -6,9 +6,24 @@ nav {
   /* padding-left: 1.5em;
   padding-right: 1.5em; */
   padding: 1.5em;
-  font-family: 'Bungee', cursive;
+  /* font-family: 'Bungee', cursive; */
   /*font-family: 'Source Sans Pro', sans-serif;*/
   position: fixed;
     top: 0;
     z-index: 10;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+#nav-span{
+  font-family: 'Bungee',sans-serif;
+  font-size: 32px;
+}
+#nav-div{
+  display: flex;
+  flex-direction: column;
+}
+nav i{
+  color: red;
+  align-self: center;
 }
