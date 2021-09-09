@@ -75,12 +75,17 @@ $('form').submit(function(event) {
    event.preventDefault();
 
    if (!$(this).find('#tweet-text').val()) {
-      alert("Tell me something, the tweet is empty.");
+      $('#error').html($(`<i class="fas fa-exclamation-triangle"></i>Tell me something, the tweet is empty. <i class="fas fa-exclamation-triangle"></i>`));
+      $('#error').slideDown();
       return;
     } else if ($(this).find('.counter').val() < 0) {
-      alert("Character number exceeds the maximum limit!");
+      $('#error').html($(`<i class="fas fa-exclamation-triangle"></i>Too long. Character number exceeds the maximum limit! <i class="fas fa-exclamation-triangle"></i>`));
+      $('#error').slideDown();
       return;
     }
+
+    $('#error').html('');
+    $('#error').css("display", "none");
 
    $.ajax({
      url: '/tweets/',
