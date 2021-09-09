@@ -19,3 +19,11 @@
  .top-header h2 span{
    font-weight: normal;
  }  */
+
+ @media only screen and (min-width:1024px){
+  .top-header{
+    width: 30vw;
+    margin: 170px auto 50px 50px;
+    padding: 0;   
+  }
+} 
