@@ -25,12 +25,13 @@ $(document).ready(function() {
  ]
 
 const renderTweets = function(tweets) {
- // loops through tweets
- // calls createTweetElement for each tweet
- // takes return value and appends it to the tweets container
- tweets.forEach(element => {
+ 
+//  tweets.forEach(element => {
+//    const $tweet = createTweetElement(element);
+$('#tweets-container').empty();
+tweets.forEach(element => {
    const $tweet = createTweetElement(element);
-   $('#tweets-container').append($tweet);
+   $('#tweets-container').prepend($tweet);
  });
  console.log("hi");
 }
@@ -67,7 +68,7 @@ renderTweets(data);
 
 $('form').submit(function(event) {
    event.preventDefault();
-   
+
    if (!$(this).find('#tweet-text').val()) {
       alert("Tell me something, the tweet is empty.");
       return;
@@ -81,8 +82,10 @@ $('form').submit(function(event) {
      method: 'POST',
      data: $(this).serialize()
    })
-
- loadTweets();
+   .then(() => {
+      loadTweets();
+      $('#tweet-text').val(''); //clear the textarea
+    })
   });
 
   //fetch tweets from server
@@ -95,4 +98,6 @@ $('form').submit(function(event) {
         renderTweets(data);
       })
   }
+
+ loadTweets();
 })
